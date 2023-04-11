@@ -1,13 +1,13 @@
 # playwright-tests-group-3
 Playwright UI testing
 
-## Instructions
+# Instructions
 This test suite uses Playwright to test the functionality of the Yle Areena website. 
 The tests check if the website loads properly, if the user registration form works, if the channel labels are present 
 and if the information about a specific episode is displayed correctly.
 
-## Setup
-# To run the tests, follow these steps:
+# Setup
+## To run the tests, follow these steps:
 
 1. Install Node.js and npm (https://nodejs.org/).
 2. Clone the repository from GitHub.
