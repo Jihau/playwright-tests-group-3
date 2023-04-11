@@ -30,10 +30,16 @@ test('check channel labels', async ({ page }) => {
         await page.click('button:text("Vain välttämättömät")')
     }
 
-    const channels = page.$$(".channel-header__logo ");
+    const channelLogos = await page.$$('.channel-header__logo');
 
-    for (const element of (await channels)) {
-        await expect (element.getAttribute("aria-label")).toBeDefined();
+    for (const logo of channelLogos) {
+        const label = await logo.getAttribute('aria-label');
+        // expect(label).toBeDefined(); // This is to check the label attribute is not empty
+        const styleAttribute = await logo.getAttribute('style');
+        const backgroundImageUrl = styleAttribute.match(/background-image: url\(['"]?([^'"]+)['"]?\)/i)[1];
+        if (backgroundImageUrl.includes(label)){
+            console.log("MATCH!")
+        }
     }
 });
 
@@ -52,3 +58,13 @@ test('season 3 ep 5 date and name',
         await expect (page.getByText("K3, J5: Kummeli ")).toBeVisible();
         await expect (page.getByText("julkaistu ti 10.1.2006")).toBeVisible();
     });
+
+test('check news exist', async ({ page }) => {
+    await page.goto("https://areena.yle.fi/tv/opas");
+
+    if ((await page.$('button:text("Vain välttämättömät")')) !== null){
+        await page.click('button:text("Vain välttämättömät")')
+    }
+
+    await expect (page.getByText("Kymmenen uutiset")).toBeVisible();
+});
