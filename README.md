@@ -1,7 +1,7 @@
 # playwright-tests-group-3
 Playwright UI testing
 
-### Instructions
+## Instructions
 This test suite uses Playwright to test the functionality of the Yle Areena website. 
 The tests check if the website loads properly, if the user registration form works, if the channel labels are present 
 and if the information about a specific episode is displayed correctly.
@@ -15,14 +15,14 @@ and if the information about a specific episode is displayed correctly.
 4. Run npm install to install the necessary packages.
 5. Run npm test to run the test suite.
 
-## Test Cases
-# Test Case 1: has title
+# Test Cases
+## Test Case 1: has title
 This test checks if the website has the correct title.
 
 1. The test opens the Yle Areena website.
 2. The test checks if the title contains the expected substring.
 
-# Test Case 2: register
+## Test Case 2: register
 This test checks if the user registration form works properly.
 
 1. The test opens the Yle Areena website.
@@ -33,14 +33,14 @@ This test checks if the user registration form works properly.
 6. The test clicks the "Luo Tunnus" button in the registration form.
 7. The test checks if the error message "Tarkista sähköpostiosoitteen muoto." is visible.
 
-# Test Case 3: check channel labels
+## Test Case 3: check channel labels
 This test checks if the channel labels are present on the TV guide page.
 
 1. The test opens the TV guide page.
 2. If a cookie banner is present, the test clicks the "Vain välttämättömät" button.
 3. The test checks if the aria-label attribute is defined for all channel logo elements using a for/of loop instead of the page.$$() method.
 
-# Test Case 4: season 3 ep 5 date and name
+## Test Case 4: season 3 ep 5 date and name
 This test checks if the information about a specific episode is displayed correctly.
 
 1. The test opens the page of the specific episode.
