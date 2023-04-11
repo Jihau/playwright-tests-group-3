@@ -38,8 +38,7 @@ This test checks if the channel labels are present on the TV guide page.
 
 1. The test opens the TV guide page.
 2. If a cookie banner is present, the test clicks the "Vain välttämättömät" button.
-3. The test checks if the aria-label attribute is defined for all channel logo elements using a for/of loop instead of the page.$$() method.
-
+3. The test checks if the aria-label attribute is defined for all channel logo elements using a for loop.
 ## Test Case 4: season 3 ep 5 date and name
 This test checks if the information about a specific episode is displayed correctly.
 
