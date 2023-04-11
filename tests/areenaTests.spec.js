@@ -36,3 +36,19 @@ test('check channel labels', async ({ page }) => {
         await expect (element.getAttribute("aria-label")).toBeDefined();
     }
 });
+
+test('season 3 ep 5 date and name',
+    async ({page}) => {
+        await page.goto("https://areena.yle.fi/1-3339547");
+
+        if ((await page.$('button:text("Vain välttämättömät")')) !== null) {
+            await page.click('button:text("Vain välttämättömät")')
+        }
+
+        await page.click('button:text("Kausi 3")');
+        await page.getByText("5. Kummeli").click();
+        await page.waitForLoadState('networkidle');
+
+        await expect (page.getByText("K3, J5: Kummeli ")).toBeVisible();
+        await expect (page.getByText("julkaistu ti 10.1.2006")).toBeVisible();
+    });
