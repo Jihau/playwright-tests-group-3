@@ -44,7 +44,7 @@ module.exports = defineConfig({
     {
       name: 'firefox',
       use: {
-        ...devices['Desktop Firefox'], headless: false, ignoreHTTPSErrors: true
+        ...devices['Desktop Firefox'], ignoreHTTPSErrors: true
       },
     },
 
