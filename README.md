@@ -13,7 +13,8 @@ and if the information about a specific episode is displayed correctly.
 2. Clone the repository from GitHub.
 3. Open a terminal in the project directory.
 4. Run 'npm install' to install the necessary packages. 
-5. Run 'npx playwright test' to run the test suite.
+5. Run 'npm test' to run the local test suite or 'npm run stackTest' to run the the tests through BrowserStack (note: you need to insert your credentials into a .env file for this to work.)
+
 
 # Test Cases
 ## Test Case 1: has title
@@ -50,3 +51,11 @@ This test checks if the information about a specific episode is displayed correc
 5. The test waits for the page to load.
 6. The test checks if the episode name and publication date are displayed correctly.
 
+## Limitations
+
+1. Maintenance: Playwright requires ongoing maintenance to keep tests up-to-date and relevant as applications changing behaviour. This can be time-consuming and may require specialized skills.
+2. Debugging: Debugging tests in Playwright can be challenging, particularly when dealing with complex interactions or issues that arise during test execution.
+3. Limited browser support: While Playwright supports multiple browsers, including Chromium, Firefox, and WebKit, it may not be compatible with all versions of these browsers. This can limit the scope of testing for some applications.
+
+## External browser testing service
+Our program uses BrowserStack
