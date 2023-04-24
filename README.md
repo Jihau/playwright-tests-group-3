@@ -56,5 +56,5 @@ This test checks if the information about a specific episode is displayed correc
 2. Debugging: Debugging tests in Playwright can be challenging, particularly when dealing with complex interactions or issues that arise during test execution.
 3. Limited browser support: While Playwright supports multiple browsers, including Chromium, Firefox, and WebKit, it may not be compatible with all versions of these browsers. This can limit the scope of testing for some applications.
 
-## External browser provider service
+## External browser testing service
 Our program uses BrowserStack
