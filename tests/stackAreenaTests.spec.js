@@ -1,8 +1,12 @@
-const { expect, test} = require("@playwright/test");
+const { expect } = require("@playwright/test");
+const { test } = require('../fixtures');
 
 const AxeBuilder = require("@axe-core/playwright").default;
 
 test('has title', async ({ page }) => {
+
+     
+
     await page.goto('https://areena.yle.fi/tv');
     try {
     const results = await new AxeBuilder({ page }).analyze();

@@ -35,22 +35,26 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-
-    },
-
-    {
-      name: 'firefox',
+      name: 'chrome@latest:Windows 10@browserstack',
       use: {
-        ...devices['Desktop Firefox'], headless: false, ignoreHTTPSErrors: true
+        browserName: 'chromium',
+        channel: 'chrome'
+      },
+    },
+    {
+      name: 'chrome@latest-beta:OSX Big Sur@browserstack',
+      use: {
+        browserName: 'chromium',
+        channel: 'chrome',
+      },
+    },
+    {
+      name: 'edge@90:Windows 10@browserstack',
+      use: {
+        browserName: 'chromium'
       },
     },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    }
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
