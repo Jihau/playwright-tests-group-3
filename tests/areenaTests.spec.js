@@ -23,7 +23,7 @@ test.describe('My test suite', () => {
 
 
     test('has a title', async ({page}) => {
-
+          // Navigate to the page
 
         await page.goto('https://areena.yle.fi/tv');
         await eyes.check('Etusivu', Target.window().fully());
