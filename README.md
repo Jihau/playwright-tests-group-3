@@ -13,7 +13,8 @@ and if the information about a specific episode is displayed correctly.
 2. Clone the repository from GitHub.
 3. Open a terminal in the project directory.
 4. Run 'npm install' to install the necessary packages. 
-5. Run 'npx playwright test' to run the test suite.
+5. Run 'npm test' to run the local test suite or 'npm run stackTest' to run the the tests through BrowserStack (note: you need to insert your credentials into a .env file for this to work.)
+
 
 # Test Cases
 ## Test Case 1: has title

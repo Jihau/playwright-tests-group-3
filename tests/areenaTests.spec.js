@@ -1,8 +1,15 @@
-const {test, expect} = require("@playwright/test");
-const AxeBuilder = require('@axe-core/playwright').default;
-test('has title', async ({page}) => {
-    await page.goto('https://areena.yle.fi/tv');
+const { expect, test} = require("@playwright/test");
 
+const AxeBuilder = require("@axe-core/playwright").default;
+
+test('has title', async ({ page }) => {
+    await page.goto('https://areena.yle.fi/tv');
+    try {
+    const results = await new AxeBuilder({ page }).analyze();
+    console.log(results);
+    } catch (error) {
+        console.log("Failed to analyze");
+    }
     // Expect a title "to contain" a substring.
     await expect(page).toHaveTitle(/Yle Areena – Enemmän kuin ehdit katsoa ja kuunnella | TV | Areena | yle.fi/);
 
@@ -104,8 +111,8 @@ test('season 3 ep 5 date and name', async ({page}) => {
     }
 });
 
-test('check news exist', async ({page}) => {
-    await page.goto("https://areena.yle.fi/tv/opas");
+    test('check news exist', async ({ page }) => {
+        await page.goto("https://areena.yle.fi/tv/opas");
 
     if ((await page.$('button:text("Vain välttämättömät")')) !== null) {
         await page.click('button:text("Vain välttämättömät")')
@@ -120,4 +127,5 @@ test('check news exist', async ({page}) => {
     await expect(page.getByText("Kymmenen uutiset")).toBeVisible();
 
 
-});
+        await expect (page.getByText(/Kymmenen uutiset/)).toBeVisible();
+    });

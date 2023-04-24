@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test --config=playwright.config.js",
+    "stackTest": "npx playwright test --config=browserstack.config.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.32.2",
-    "axe-core": "^4.7.0"
+    "@playwright/test": "^1.33.0-alpha-apr-24-2023"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.6.1",
-    "playwright": "^1.32.2"
+    "browserstack-local": "^1.5.2",
+    "chrome": "^0.1.0",
+    "dotenv": "^16.0.3",
+    "firefox": "0.0.1",
+    "playwright": "^1.32.3"
   }
 }
