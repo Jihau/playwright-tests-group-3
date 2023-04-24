@@ -1,12 +1,15 @@
 const base = require('@playwright/test');
 const cp = require('child_process');
+require('dotenv').config();
+
 const clientPlaywrightVersion = cp
   .execSync('npx playwright --version')
   .toString()
   .trim()
   .split(' ')[1];
 const BrowserStackLocal = require('browserstack-local');
-const { timeout } = require('./playwright.config');
+const { timeout } = require('./browserstack.config');
+const { SourceTextModule } = require('vm');
 
 // BrowserStack Specific Capabilities.
 const caps = {
@@ -15,18 +18,19 @@ const caps = {
   os_version: 'catalina',
   name: 'My first playwright test',
   build: 'playwright-build-1',
-  'browserstack.username': process.env.BROWSERSTACK_USERNAME || 'samposavolainen_xOwk8s',
-  'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY || 'INSERT HERE',
+  'browserstack.username': process.env.BROWSERSTACK_USERNAME || process.env.USER,
+  'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY || process.env.KEY,
   'browserstack.local': process.env.BROWSERSTACK_LOCAL || false,
   'client.playwrightVersion': clientPlaywrightVersion,
 };
-timeout: 3000000;
+
+timeout: 120000;
 
 exports.bsLocal = new BrowserStackLocal.Local();
 
 // replace YOUR_ACCESS_KEY with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
 exports.BS_LOCAL_ARGS = {
-  key: process.env.BROWSERSTACK_ACCESS_KEY || 'INSERT HERE',
+  key: process.env.BROWSERSTACK_ACCESS_KEY || process.env.KEY,
 };
 
 // Patching the capabilities dynamically according to the project name.
